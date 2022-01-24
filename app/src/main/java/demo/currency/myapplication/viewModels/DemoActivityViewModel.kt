@@ -20,10 +20,12 @@ class DemoActivityViewModel(
     private var sorting: Job? = null
 
     private val _currencyInfoList = MutableLiveData<ArrayList<CurrencyInfo>>()
-    val currencyInfoList: LiveData<ArrayList<CurrencyInfo>> = _currencyInfoList
+    val currencyInfoList: LiveData<ArrayList<CurrencyInfo>>
+        get() = _currencyInfoList
 
     private val _disableSorting = MutableLiveData(true)
-    val disableSorting: LiveData<Boolean> = _disableSorting
+    val disableSorting: LiveData<Boolean>
+        get() = _disableSorting
 
     fun fetchCurrencyList() {
         if (fetching?.isActive == true) {
