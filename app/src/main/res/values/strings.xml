@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    
+    <string name="load_data">Load Data</string>
+    <string name="sort_data">Sort</string>
+    <string name="crypto_currency">CRYPTOCURRENCY</string>
+</resources>
