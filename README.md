@@ -8,9 +8,9 @@ If re-install can not solve, you can try:
 1. Go to the SDK folder ( you can check it in Android Studio -> File -> Project Structure -> SDK location)
 2. From SDK folder -> build-tools -> 32.0.0 -> rename the file d8 to dx, then go to lib folder, rename d8.jar to dx.jar
 
-Or
-Go to build.gradle(app), update the following lines:
+Or 2nd method:
+ - Go to build.gradle(app), update the corresponding lines to use version 30, i.e.:
 
-compileSdkVersion 30
-buildToolsVersion '30.0.0'
-targetSdkVersion 30
+   - compileSdkVersion 30
+   - buildToolsVersion '30.0.0'
+   - targetSdkVersion 30
