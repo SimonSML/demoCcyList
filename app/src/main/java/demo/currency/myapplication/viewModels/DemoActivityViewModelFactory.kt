@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import demo.currency.myapplication.repositories.CurrencyInfoRepoImpl
 import kotlinx.coroutines.CoroutineDispatcher
 
+//Not used as now using Koin
 class DemoActivityViewModelFactory(
     private val repo: CurrencyInfoRepoImpl,
     private val defaultDispatcher: CoroutineDispatcher

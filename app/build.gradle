@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.0'
+    compileSdkVersion 32
+    buildToolsVersion '32.0.0'
 
     defaultConfig {
         applicationId "demo.currency.myapplication"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
     }
@@ -62,6 +62,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
+    //Koin
+    implementation "io.insert-koin:koin-android:$koin_version"
+
     //test
     testImplementation "junit:junit:$testDep.junit"
     testImplementation "io.mockk:mockk:$testDep.mockk"
@@ -71,4 +74,8 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$testDep.core_testing"
     //For using viewModelScope
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$testDep.viewmodel_ktx"
+    // Koin Test features
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+    // Needed JUnit version
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
 }

@@ -1,16 +1,22 @@
 package demo.currency.myapplication
 
 import android.app.Application
-import demo.currency.myapplication.db.CurrencyInfoDatabase
-import demo.currency.myapplication.repositories.CurrencyInfoRepoImpl
-import kotlinx.coroutines.Dispatchers
+import demo.currency.myapplication.di.DependencyInjection
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.GlobalContext.startKoin
 
 class MyApp : Application() {
-    private val database by lazy { CurrencyInfoDatabase.getDatabase(this) }
-    val currencyInfoRepo by lazy {
-        CurrencyInfoRepoImpl.getInstance(
-            database.currencyInfoDao(),
-            Dispatchers.IO
-        )
+
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidLogger()
+            // declare use Android context
+            androidContext(this@MyApp)
+            // declare modules
+            modules(DependencyInjection.modules)
+        }
+
     }
 }
