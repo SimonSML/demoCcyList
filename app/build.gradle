@@ -14,6 +14,7 @@ android {
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
@@ -21,12 +22,30 @@ android {
         viewBinding true
     }
 
+    signingConfigs {
+        instr {
+            storeFile rootProject.file('debug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+    }
+
     buildTypes {
+        instr {
+            signingConfig signingConfigs.instr
+            minifyEnabled false
+            debuggable true
+            matchingFallbacks = ['debug']
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    testBuildType "instr"
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -78,4 +97,10 @@ dependencies {
     testImplementation "io.insert-koin:koin-test:$koin_version"
     // Needed JUnit version
     testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+
+    //Android test
+    androidTestImplementation "androidx.test.ext:junit-ktx:$testDep.ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$testDep.espresso_version"
+    androidTestImplementation "androidx.test:rules:$testDep.test_rule"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$testDep.espresso_version"
 }

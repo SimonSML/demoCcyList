@@ -4,7 +4,10 @@ def testDependencies = [
         mockk : '1.12.2',
         kotlinx_coroutine_test : '1.4.2',
         core_testing : '2.1.0',
-        viewmodel_ktx : '2.3.0'
+        viewmodel_ktx : '2.3.0',
+        test_rule : '1.4.1-alpha05',
+        ext_junit : '1.1.2',
+        espresso_version : '3.5.0-alpha05'
 ]
 
 
