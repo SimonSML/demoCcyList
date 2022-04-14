@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">My Application</string>
-    
+
     <string name="load_data">Load Data</string>
     <string name="sort_data">Sort</string>
     <string name="crypto_currency">CRYPTOCURRENCY</string>
+    <string name="currency_in">Currency in %s</string>
+    <string name="day_open">Open: %s</string>
+    <string name="day_high">High: %s</string>
+    <string name="day_low">Low: %s</string>
+    <string name="volume">Volume: %s</string>
+    <string name="title_trade">Trade</string>
+    <string name="button_buy">Buy</string>
+    <string name="button_sell">Sell</string>
+    <string name="input_price_hint">Price</string>
+    <string name="preview">Preview</string>
 </resources>

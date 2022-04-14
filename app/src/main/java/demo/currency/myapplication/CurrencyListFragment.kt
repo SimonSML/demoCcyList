@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import demo.currency.myapplication.adapter.CurrencyListAdapter
 import demo.currency.myapplication.databinding.FragmentCurrencyListBinding
@@ -53,9 +54,7 @@ class CurrencyListFragment : Fragment() {
         @JvmStatic
         fun newInstance(data: ArrayList<CurrencyInfo>): CurrencyListFragment {
             return CurrencyListFragment().apply {
-                arguments = Bundle().apply {
-                    putSerializable(KEY_CURRENCY_LIST, data)
-                }
+                arguments = bundleOf(KEY_CURRENCY_LIST to data)
             }
         }
     }

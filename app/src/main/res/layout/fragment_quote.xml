@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quoteInfo"
+            type="demo.currency.myapplication.model.CurrencyQuote" />
+
+        <variable
+            name="viewModel"
+            type="demo.currency.myapplication.viewModels.QuoteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="?android:colorPrimaryDark"
+            android:gravity="center"
+            android:text="@string/title_trade"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/default_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/default_margin" />
+
+
+        <TextView
+            android:id="@+id/ticker"
+            style="@style/ticker_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{quoteInfo.ticker}"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/top_bar"
+            tools:text="ETH" />
+
+        <TextView
+            android:id="@+id/currency"
+            style="@style/default_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/currency_in(quoteInfo.currency)}"
+            app:layout_constraintRight_toLeftOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/top_bar"
+            tools:text="currency in USD" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/default_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{quoteInfo.name}"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/ticker"
+            tools:text="Ethereum" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{quoteInfo.price}"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:priceColor="@{quoteInfo.priceChange}"
+            tools:text="304.710" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/price"
+            app:layout_constraintLeft_toRightOf="@id/price"
+            app:layout_constraintTop_toTopOf="@id/price"
+            app:priceColor="@{quoteInfo.priceChange}"
+            app:srcCompat="@android:drawable/arrow_down_float" />
+
+        <TextView
+            android:id="@+id/price_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{quoteInfo.priceChangeDisplayable}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/price"
+            app:priceColor="@{quoteInfo.priceChange}"
+            tools:text="4.710" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical"
+            app:layout_constraintRight_toLeftOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/name">
+
+            <TextView
+                style="@style/ticker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/day_open(quoteInfo.open)}"
+                app:layout_constraintLeft_toRightOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                tools:text="Open:   323.400" />
+
+            <TextView
+                style="@style/ticker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/day_high(quoteInfo.high)}"
+                app:layout_constraintLeft_toRightOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                tools:text="High:   323.400" />
+
+            <TextView
+                style="@style/ticker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/day_low(quoteInfo.low)}"
+                app:layout_constraintLeft_toRightOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                tools:text="Low:   323.400" />
+
+            <TextView
+                style="@style/ticker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/volume(quoteInfo.volume)}"
+                app:layout_constraintLeft_toRightOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                tools:text="Volume:       123M" />
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/buy_sell_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@color/buy_sell_button_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/price_change">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_buy" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_sell" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintRight_toLeftOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/buy_sell_tab">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:digits="0123456789.,"
+                    android:hint="@string/input_price_hint"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.displaySummary}"
+            app:layout_constraintBottom_toTopOf="@id/btn_preview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btn_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModel.previewButtonClick()}"
+            android:text="Click"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

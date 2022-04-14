@@ -4,44 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <View
-        android:id="@+id/top_view_bg"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/list_search_title_height"
-        android:background="#E0E0E0"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/list_search_title_height"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/default_margin"
-        android:text="@string/crypto_currency"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/search_view"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/search_view"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginRight="@dimen/default_margin"
-        app:layout_constraintBottom_toBottomOf="@id/top_view_bg"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/top_view_bg"
-        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
-
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button

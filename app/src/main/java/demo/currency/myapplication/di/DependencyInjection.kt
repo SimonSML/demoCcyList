@@ -4,6 +4,7 @@ import demo.currency.myapplication.db.CurrencyInfoDatabase
 import demo.currency.myapplication.repositories.CurrencyInfoRepo
 import demo.currency.myapplication.repositories.CurrencyInfoRepoImpl
 import demo.currency.myapplication.viewModels.DemoActivityViewModel
+import demo.currency.myapplication.viewModels.QuoteViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -32,4 +33,5 @@ val currencyModule = module {
         )
     }
     viewModel { DemoActivityViewModel(get(), get(named("defaultDispatcher"))) }
+    viewModel { QuoteViewModel() }
 }

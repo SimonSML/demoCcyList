@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="default_label">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="ticker_label">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#A0A0A0</item>
+    </style>
+
+</resources>
