@@ -1,0 +1,14 @@
+{
+  "exchange": "MyExchange",
+  "currency": "USD",
+  "ticker": "BTC",
+  "name": "BitCoin",
+  "delayed_price": 123.4557,
+  "priceChange": 18.2344,
+  "percentageChange": 2.2325,
+  "open_price": 120.1005,
+  "highest": 142.52,
+  "lowest": 110.0005,
+  "close_price": null,
+  "ticker_volume": 12345678
+}

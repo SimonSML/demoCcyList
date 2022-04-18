@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import demo.currency.myapplication.R
 import java.math.BigDecimal
 
 
@@ -25,14 +26,14 @@ fun setPriceColor(view: TextView, number: BigDecimal?) {
 @BindingAdapter("priceColor")
 fun setPriceColor(view: ImageView, number: BigDecimal?) {
     number?.let {
-        val (color, visibility) = when (it.signum()) {
-            1 -> Pair(Color.GREEN, View.VISIBLE)
-            -1 -> Pair(Color.RED, View.VISIBLE)
-            else -> Pair(Color.BLACK, View.GONE)
+        val (colorRes, visibility) = when (it.signum()) {
+            1 -> Pair(R.color.stock_positive, View.VISIBLE)
+            -1 -> Pair(R.color.stock_negative, View.VISIBLE)
+            else -> Pair(R.color.black, View.GONE)
         }
         if (view.visibility != visibility) {
             view.visibility = visibility
         }
-        view.setColorFilter(color)
+        view.setColorFilter(view.context.resources.getColor(colorRes))
     }
 }

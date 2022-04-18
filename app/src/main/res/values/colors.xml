@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="stock_positive">#00FF00</color>
+    <color name="stock_negative">#FF0000</color>
     <color name="currency_id_color">#6F6F6F</color>
     <color name="buy_sell_button_bg">#FFF0F0F0</color>
 </resources>

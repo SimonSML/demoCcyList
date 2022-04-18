@@ -9,6 +9,9 @@ class QuoteViewModel : ViewModel() {
     private val _displaySummary = MutableLiveData<String>()
     val displaySummary: LiveData<String> = _displaySummary
 
+    private val _isPreviewEnabled = MutableLiveData<Boolean>(false)
+    val isPreviewEnabled: LiveData<Boolean> = _isPreviewEnabled
+
     private var side = TradeSide.BUY
     private var price: String = ""
 
@@ -18,6 +21,7 @@ class QuoteViewModel : ViewModel() {
 
     fun setPrice(price: String) {
         this.price = price
+        _isPreviewEnabled.value = price.isNotBlank()
     }
 
     fun previewButtonClick() {

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/placeholderFragment">
+    <fragment
+        android:id="@+id/placeholderFragment"
+        android:name="demo.currency.myapplication.PlaceholderFragment"
+        android:label="fragment_placeholder"
+        tools:layout="@layout/fragment_placeholder">
+        <action
+            android:id="@+id/action_placeholderFragment_to_currencyListFragment"
+            app:destination="@id/currencyListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/currencyListFragment"
+        android:name="demo.currency.myapplication.CurrencyListFragment"
+        android:label="CurrencyListFragment">
+        <argument
+            android:name="currency_list"
+            app:argType="demo.currency.myapplication.model.CurrencyInfo[]" />
+        <action
+            android:id="@+id/action_to_quote"
+            app:destination="@+id/quoteFragment" />
+        <action
+            android:id="@+id/action_currencyListFragment_self"
+            app:destination="@id/currencyListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quoteFragment"
+        android:name="demo.currency.myapplication.QuoteFragment"
+        android:label="QuoteFragment">
+        <argument
+            android:name="key_quote_info"
+            app:argType="demo.currency.myapplication.model.CurrencyQuote" />
+        <action
+            android:id="@+id/action_quoteFragment_to_placeholder"
+            app:destination="@id/placeholder" />
+    </fragment>
+    <fragment android:id="@+id/placeholder" />
+
+
+</navigation>

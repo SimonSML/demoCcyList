@@ -31,14 +31,14 @@ class QuoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentQuoteBinding.inflate(inflater)
-        arguments?.let {
-            if (!it.isEmpty && it.containsKey(KEY_QUOTE_INFO)) {
-                binding.quoteInfo = it[KEY_QUOTE_INFO] as CurrencyQuote
-            }
-        }
         with(binding) {
             viewModel = quoteViewModel
             lifecycleOwner = viewLifecycleOwner
+            arguments?.let {
+                if (!it.isEmpty && it.containsKey(KEY_QUOTE_INFO)) {
+                    binding.quoteInfo = it[KEY_QUOTE_INFO] as CurrencyQuote
+                }
+            }
             buySellTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     tab?.let {
@@ -56,6 +56,10 @@ class QuoteFragment : Fragment() {
             inputPrice.doAfterTextChanged {
                 applyNumberFormatToField(inputPrice)
             }.also { textWatcher = it }
+
+            quoteViewModel.isPreviewEnabled.observe(viewLifecycleOwner) { isEnabled ->
+                btnPreview.isEnabled = isEnabled
+            }
         }
 
         return binding.root

@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Android_SDK/sdk/platforms/android-32/data/res/layout/auto_complete_list.xml" value="0.2388888888888889" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_currency_list.xml" value="0.17299898682877407" />
-        <entry key="app/src/main/res/layout/fragment_quote.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_placeholder.xml" value="0.11927083333333334" />
+        <entry key="app/src/main/res/layout/fragment_quote.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_currency_list.xml" value="0.17299898682877407" />
       </map>
     </option>

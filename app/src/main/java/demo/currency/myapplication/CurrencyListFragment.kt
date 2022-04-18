@@ -27,7 +27,7 @@ class CurrencyListFragment : Fragment() {
         arguments?.let { bundle ->
             bundle.getSerializable(KEY_CURRENCY_LIST)?.let {
                 currencyInfoList.clear()
-                currencyInfoList.addAll(it as ArrayList<CurrencyInfo>)
+                currencyInfoList.addAll(it as Array<CurrencyInfo>)
             }
         }
         binding = FragmentCurrencyListBinding.inflate(inflater, container, false)

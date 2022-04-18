@@ -33,7 +33,7 @@ class DemoActivityTest {
         val loadDataButton = onView(
             allOf(
                 withId(R.id.btn_load_data), withText("LOAD DATA"),
-                withParent(withParent(withId(android.R.id.content))),
+                withParent(withId(R.id.layout_buttons)),
                 isDisplayed()
             )
         )
@@ -76,7 +76,10 @@ class DemoActivityTest {
 
     }
 
-    private fun hideKeyboard() {
-        onView(isRoot()).perform(ViewActions.closeSoftKeyboard())
+    companion object {
+        fun hideKeyboard() {
+            onView(isRoot()).perform(ViewActions.closeSoftKeyboard())
+        }
     }
+
 }

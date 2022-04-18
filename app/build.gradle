@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -84,6 +85,13 @@ dependencies {
     //Koin
     implementation "io.insert-koin:koin-android:$koin_version"
 
+    //Navigation Graph
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+
+
     //test
     testImplementation "junit:junit:$testDep.junit"
     testImplementation "io.mockk:mockk:$testDep.mockk"
@@ -103,4 +111,10 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$testDep.espresso_version"
     androidTestImplementation "androidx.test:rules:$testDep.test_rule"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$testDep.espresso_version"
+    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
+    //ignore warnings 'use debugImplementation'
+    instrImplementation ("androidx.fragment:fragment-testing:$fragment_ktx_version") {
+            exclude group: 'androidx.test', module: 'core'
+    }
+
 }

@@ -1,7 +1,9 @@
 package demo.currency.myapplication.utils
 
+import android.os.Build
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.matcher.BoundedMatcher
 import org.hamcrest.Description
@@ -39,6 +41,24 @@ fun atPosition(position: Int, itemMatcher: Matcher<View>): Matcher<View> {
             val viewHolder = view.findViewHolderForAdapterPosition(position)
                 ?: return false
             return itemMatcher.matches(viewHolder.itemView)
+        }
+    }
+}
+
+fun withTextColor(colorRes: Int): Matcher<View> {
+    return object : BoundedMatcher<View, TextView>(TextView::class.java) {
+        override fun matchesSafely(item: TextView): Boolean {
+            val context = item.context
+            val expectedColor = if (Build.VERSION.SDK_INT <= 22) {
+                context?.resources?.getColor(colorRes)
+            } else {
+                context?.getColor(colorRes)
+            }
+            return item.currentTextColor == expectedColor
+        }
+
+        override fun describeTo(description: Description) {
+            description.appendText("with text color: ")
         }
     }
 }

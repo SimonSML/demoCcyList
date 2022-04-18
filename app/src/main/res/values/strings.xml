@@ -14,4 +14,6 @@
     <string name="button_sell">Sell</string>
     <string name="input_price_hint">Price</string>
     <string name="preview">Preview</string>
+
+    <string name="hello_blank_fragment">This page is blank. Click Load button to load data</string>
 </resources>

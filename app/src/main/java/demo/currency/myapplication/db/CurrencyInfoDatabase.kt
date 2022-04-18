@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import demo.currency.myapplication.model.CurrencyInfo
+import demo.currency.myapplication.utils.readJsonObjectListFromAssetFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,11 +38,10 @@ abstract class CurrencyInfoDatabase : RoomDatabase() {
     private fun insertDataForNewDB(context: Context) {
         INSTANCE?.let { database ->
             GlobalScope.launch(Dispatchers.IO) {
-                val json : String = context.assets.open("currencylist.json").bufferedReader().use {
-                    it.readText()
-                }
                 val users: List<CurrencyInfo> =
-                    Gson().fromJson(json, object : TypeToken<List<CurrencyInfo>>() {}.type)
+                    context.readJsonObjectListFromAssetFile("currencylist.json",
+                        object : TypeToken<List<CurrencyInfo>>() {}.type
+                    )
                 val dao = database.currencyInfoDao()
                 users.forEach {
                     dao.insert(it)
